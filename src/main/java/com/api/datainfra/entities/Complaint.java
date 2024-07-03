@@ -17,14 +17,28 @@ public class Complaint implements Serializable {
     private String road;
     private LocalDate date;
 
+    @ManyToOne
+    @JoinColumn(name = "User_id", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "Neighborhood_id", nullable = false)
+    private Neighborhood neighborhood;
+
+    @ManyToOne
+    @JoinColumn(name = "TypeComplaint_id", nullable = false)
+    private TypeComplaint typeComplaint;
 
     public Complaint(){
     }
 
-    public Complaint(Long id, String road, LocalDate date) {
+    public Complaint(Long id, String road, LocalDate date, User user, Neighborhood neighborhood,
+                     TypeComplaint typeComplaint) {
         this.id = id;
         this.road = road;
         this.date = date;
+        this.user = user;
+        this.neighborhood = neighborhood;
+        this.typeComplaint = typeComplaint;
     }
-
 }

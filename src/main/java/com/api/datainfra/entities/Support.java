@@ -16,10 +16,13 @@ public class Support implements Serializable {
     private String name;
     private String descricao;
 
+    @ManyToOne
+    @JoinColumn(name = "User_id", nullable = false)
+    private User user;
+
     public Support(){
 
     }
-
     public Support(Long id, String name, String descricao) {
         this.id = id;
         this.name = name;
