@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tb_Neighborhood")
+@Table(name = "tb_Neighborhoods")
 @Data
 public class Neighborhood implements Serializable {
 
@@ -15,11 +15,4 @@ public class Neighborhood implements Serializable {
     private Long id;
     private String name;
 
-    public Neighborhood(){
-
-    }
-    public Neighborhood(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 }

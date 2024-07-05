@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "tb_User")
+@Table(name = "tb_Users")
 @Data
 public class User implements Serializable {
 
@@ -22,20 +22,4 @@ public class User implements Serializable {
     private String cep;
     private String password;
     private String type;
-
-    public User(){
-    }
-    public User(Long id, String name, Long cpf, LocalDate dateBirth, String email, String phone,
-                String cep, String password, String type) {
-        this.id = id;
-        this.name = name;
-        this.cpf = cpf;
-        this.dateBirth = dateBirth;
-        this.email = email;
-        this.phone = phone;
-        this.cep = cep;
-        this.password = password;
-        this.type = type;
-    }
-
 }
