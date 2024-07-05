@@ -1,10 +1,10 @@
 package com.api.datainfra.entities;
 
+import com.api.datainfra.entities.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "tb_users")
@@ -20,13 +20,13 @@ public class User implements Serializable {
     private String phone;
     private String cep;
     private String password;
-    private String type;
+    private Integer userStatus;
 
     public User() {
 
     }
 
-    public User(Long id, String name, String cpf, String email, String phone, String cep, String password, String type) {
+    public User(Long id, String name, String cpf, String email, String phone, String cep, String password, UserStatus userStatus) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
@@ -34,7 +34,15 @@ public class User implements Serializable {
         this.phone = phone;
         this.cep = cep;
         this.password = password;
-        this.type = type;
+        setUserStatus(userStatus);
+    }
+
+    public UserStatus getUserStatus() {
+        return UserStatus.valueOf(userStatus);
+    }
+
+    private void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus.getCode();
     }
 
 }

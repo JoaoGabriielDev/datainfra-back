@@ -16,4 +16,13 @@ public class TypeComplaint implements Serializable {
     private String name;
     private String descricao;
 
+    public TypeComplaint() {
+
+    }
+
+    public TypeComplaint(Long id, String name, String descricao) {
+        this.id = id;
+        this.name = name;
+        this.descricao = descricao;
+    }
 }

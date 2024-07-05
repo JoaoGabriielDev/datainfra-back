@@ -15,4 +15,12 @@ public class Neighborhood implements Serializable {
     private Long id;
     private String name;
 
+    public Neighborhood() {
+
+    }
+
+    public Neighborhood(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

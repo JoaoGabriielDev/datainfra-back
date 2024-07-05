@@ -20,4 +20,14 @@ public class Support implements Serializable {
     @JoinColumn(name = "User_id", nullable = false)
     private User user;
 
+    public Support() {
+
+    }
+
+    public Support(Long id, String name, String descricao, User user) {
+        this.id = id;
+        this.name = name;
+        this.descricao = descricao;
+        this.user = user;
+    }
 }

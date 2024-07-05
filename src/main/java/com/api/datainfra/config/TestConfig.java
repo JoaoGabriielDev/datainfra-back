@@ -1,6 +1,7 @@
 package com.api.datainfra.config;
 
 import com.api.datainfra.entities.User;
+import com.api.datainfra.entities.enums.UserStatus;
 import com.api.datainfra.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,9 +22,12 @@ public class TestConfig implements CommandLineRunner {
 
 
     User u1 = new User(null, "Joao Gabriel", "70762874473", "jgabriellima1067@gmail.com",
-            "83986584839", "58302340", "12345", "Cliente");
+            "83986584839", "58302340", "12345", UserStatus.ADMIN);
 
-    userRepository.saveAll(Arrays.asList(u1));
+    User u2 = new User(null, "Maria Clara", "23398876634", "mariaclara@gmail.com",
+            "8390476378", "58302340", "12345", UserStatus.CLIENT);
+
+    userRepository.saveAll(Arrays.asList(u1, u2));
     
     }
 }
