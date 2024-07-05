@@ -15,7 +15,7 @@ public class SupportServiceImpl implements SupportService {
     private SupportRepository repository;
 
     @Override
-    public List<Support> findAll(Support support){
+    public List<Support> findAll(){
         return repository.findAll();
     }
 

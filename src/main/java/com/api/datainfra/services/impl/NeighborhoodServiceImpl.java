@@ -15,7 +15,7 @@ public class NeighborhoodServiceImpl implements NeighborhoodService {
     private NeighborhoodRepository repository;
 
     @Override
-    public List<Neighborhood> findAll(Neighborhood neighborhood){
+    public List<Neighborhood> findAll(){
         return repository.findAll();
     }
 

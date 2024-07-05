@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ComplaintService {
 
-    List<Complaint> findAll(Complaint complaint);
+    List<Complaint> findAll();
     Complaint findById(Long id);
     Complaint save(Complaint complaint);
     void deleteById(Long id);

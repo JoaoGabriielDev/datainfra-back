@@ -15,7 +15,7 @@ public class ComplaintServiceImpl implements ComplaintService {
     private ComplaintRepository repository;
 
     @Override
-    public List<Complaint> findAll(Complaint complaint){
+    public List<Complaint> findAll(){
         return repository.findAll();
     }
 

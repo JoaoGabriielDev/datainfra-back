@@ -24,5 +24,6 @@ public class TestConfig implements CommandLineRunner {
             "83986584839", "58302340", "12345", "Cliente");
 
     userRepository.saveAll(Arrays.asList(u1));
-}
+    
+    }
 }

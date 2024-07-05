@@ -15,7 +15,7 @@ public class TypeComplaintServiceImpl implements TypeComplaintService {
     private TypeComplaintRepository repository;
 
     @Override
-    public List<TypeComplaint> findAll(TypeComplaint typeComplaint){
+    public List<TypeComplaint> findAll(){
         return repository.findAll();
     }
 

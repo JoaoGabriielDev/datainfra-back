@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SupportService {
 
-    List<Support> findAll(Support support);
+    List<Support> findAll();
     Support findById(Long id);
     Support save(Support support);
     void deleteById(Long id);
