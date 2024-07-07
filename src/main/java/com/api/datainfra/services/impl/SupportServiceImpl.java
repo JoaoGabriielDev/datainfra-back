@@ -33,4 +33,12 @@ public class SupportServiceImpl implements SupportService {
     public void deleteById(Long id){
         repository.deleteById(id);
     }
+
+    @Override
+    public Support update(Long id, Support support){
+        Support obj = findById(id);
+        obj.setName(support.getName());
+        obj.setDescricao(support.getDescricao());
+        return repository.save(obj);
+    }
 }

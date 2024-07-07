@@ -34,4 +34,16 @@ public class UserServiceImpl implements UserService {
        repository.deleteById(id);
     }
 
+    @Override
+    public User update(Long id, User user){
+        User obj = findById(id);
+        obj.setName(user.getName());
+        obj.setEmail(user.getCpf());
+        obj.setEmail(user.getEmail());
+        obj.setPhone(user.getPhone());
+        obj.setCep(user.getCep());
+        obj.setPassword(user.getPassword());
+        return repository.save(obj);
+    }
+
 }

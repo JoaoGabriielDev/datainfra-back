@@ -10,4 +10,5 @@ public interface ComplaintService {
     Complaint findById(Long id);
     Complaint save(Complaint complaint);
     void deleteById(Long id);
+    Complaint update(Long id, Complaint complaint);
 }

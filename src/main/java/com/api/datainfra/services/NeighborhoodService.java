@@ -10,4 +10,5 @@ public interface NeighborhoodService {
     Neighborhood findById(Long id);
     Neighborhood save(Neighborhood neighborhood);
     void deleteById(Long id);
+    Neighborhood update(Long id, Neighborhood neighborhood);
 }

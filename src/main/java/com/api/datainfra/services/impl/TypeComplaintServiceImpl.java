@@ -33,4 +33,12 @@ public class TypeComplaintServiceImpl implements TypeComplaintService {
     public void deleteById(Long id){
         repository.deleteById(id);
     }
+
+    @Override
+    public TypeComplaint update(Long id, TypeComplaint typeComplaint){
+        TypeComplaint obj = findById(id);
+        obj.setName(typeComplaint.getName());
+        obj.setDescricao(typeComplaint.getDescricao());
+        return repository.save(obj);
+    }
 }

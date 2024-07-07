@@ -10,4 +10,5 @@ public interface SupportService {
     Support findById(Long id);
     Support save(Support support);
     void deleteById(Long id);
+    Support update(Long id, Support support);
 }

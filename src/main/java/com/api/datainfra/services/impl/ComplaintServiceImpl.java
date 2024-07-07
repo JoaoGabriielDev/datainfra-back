@@ -33,4 +33,12 @@ public class ComplaintServiceImpl implements ComplaintService {
     public void deleteById(Long id){
         repository.deleteById(id);
     }
+
+    @Override
+    public Complaint update(Long id, Complaint complaint){
+        Complaint obj = findById(id);
+        obj.setRoad(complaint.getRoad());
+        obj.setDate(complaint.getDate());
+        return repository.save(obj);
+    }
 }
