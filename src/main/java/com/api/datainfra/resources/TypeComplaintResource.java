@@ -1,13 +1,11 @@
 package com.api.datainfra.resources;
 
 import com.api.datainfra.entities.TypeComplaint;
+import com.api.datainfra.entities.User;
 import com.api.datainfra.services.TypeComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +28,21 @@ public class TypeComplaintResource {
         return ResponseEntity.ok().body(obj);
     }
 
+    @PostMapping
+    public TypeComplaint insert(TypeComplaint typeComplaint){
+        return service.insert(typeComplaint);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(Long id){
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<TypeComplaint> update(@PathVariable Long id, @RequestBody TypeComplaint typeComplaint){
+        TypeComplaint obj = service.update(id, typeComplaint);
+        return ResponseEntity.ok().body(obj);
+    }
 
 }

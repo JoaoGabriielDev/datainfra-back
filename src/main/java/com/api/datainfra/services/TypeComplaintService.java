@@ -9,7 +9,7 @@ public interface TypeComplaintService {
 
     List<TypeComplaint> findAll();
     TypeComplaint findById(Long id);
-    TypeComplaint save(TypeComplaint typeComplaint);
+    TypeComplaint insert(TypeComplaint typeComplaint);
     void deleteById(Long id);
     TypeComplaint update(Long id, TypeComplaint typeComplaint);
 }

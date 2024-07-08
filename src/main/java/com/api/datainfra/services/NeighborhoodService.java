@@ -8,7 +8,7 @@ public interface NeighborhoodService {
 
     List<Neighborhood> findAll();
     Neighborhood findById(Long id);
-    Neighborhood save(Neighborhood neighborhood);
+    Neighborhood insert(Neighborhood neighborhood);
     void deleteById(Long id);
     Neighborhood update(Long id, Neighborhood neighborhood);
 }

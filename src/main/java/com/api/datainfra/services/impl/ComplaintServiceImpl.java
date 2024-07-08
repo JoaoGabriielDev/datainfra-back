@@ -25,7 +25,7 @@ public class ComplaintServiceImpl implements ComplaintService {
     }
 
     @Override
-    public Complaint save(Complaint complaint){
+    public Complaint insert(Complaint complaint){
         return repository.save(complaint);
     }
 

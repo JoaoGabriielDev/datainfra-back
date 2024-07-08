@@ -25,7 +25,7 @@ public class TypeComplaintServiceImpl implements TypeComplaintService {
     }
 
     @Override
-    public TypeComplaint save(TypeComplaint typeComplaint){
+    public TypeComplaint insert(TypeComplaint typeComplaint){
         return repository.save(typeComplaint);
     }
 

@@ -4,10 +4,7 @@ import com.api.datainfra.entities.Complaint;
 import com.api.datainfra.services.ComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,4 +27,20 @@ public class ComplaintResource {
         return ResponseEntity.ok().body(obj);
     }
 
+    @PostMapping
+    public Complaint insert(@RequestBody Complaint complaint){
+        return service.insert(complaint);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Complaint> update(@PathVariable Long id, @RequestBody Complaint complaint){
+        Complaint obj = service.update(id, complaint);
+        return ResponseEntity.ok().body(obj);
+    }
 }

@@ -25,7 +25,7 @@ public class SupportServiceImpl implements SupportService {
     }
 
     @Override
-    public Support save(Support support){
+    public Support insert(Support support){
         return repository.save(support);
     }
 

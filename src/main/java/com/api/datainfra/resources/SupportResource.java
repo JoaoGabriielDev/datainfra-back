@@ -4,10 +4,7 @@ import com.api.datainfra.entities.Support;
 import com.api.datainfra.services.SupportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,4 +27,20 @@ public class SupportResource {
         return ResponseEntity.ok().body(obj);
     }
 
+    @PostMapping
+    public Support insert(Support support){
+        return service.insert(support);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Support> update(@PathVariable Long id, @RequestBody Support support){
+        Support obj = service.update(id, support);
+        return ResponseEntity.ok().body(obj);
+    }
 }

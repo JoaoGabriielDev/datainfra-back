@@ -25,12 +25,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(User user){
+    public User insert(User user){
         return repository.save(user);
     }
 
     @Override
-    public void deleteById(Long id){
+    public void delete(Long id){
        repository.deleteById(id);
     }
 

@@ -27,7 +27,7 @@ public class NeighborhoodServiceImpl implements NeighborhoodService {
     }
 
     @Override
-    public Neighborhood save(Neighborhood neighborhood){
+    public Neighborhood insert(Neighborhood neighborhood){
         return repository.save(neighborhood);
     }
 

@@ -8,7 +8,7 @@ public interface SupportService {
 
     List<Support> findAll();
     Support findById(Long id);
-    Support save(Support support);
+    Support insert(Support support);
     void deleteById(Long id);
     Support update(Long id, Support support);
 }

@@ -8,7 +8,7 @@ public interface ComplaintService {
 
     List<Complaint> findAll();
     Complaint findById(Long id);
-    Complaint save(Complaint complaint);
+    Complaint insert(Complaint complaint);
     void deleteById(Long id);
     Complaint update(Long id, Complaint complaint);
 }
