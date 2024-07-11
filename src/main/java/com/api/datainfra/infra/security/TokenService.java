@@ -34,15 +34,18 @@ public class TokenService {
         }
     }
 
-    public String validateToken(String token){
-        try{
+    public String validateToken(String token) {
+        if (token == null || token.isEmpty()) {
+            return null;
+        }
+        try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             return JWT.require(algorithm)
                     .withIssuer("data-infra")
                     .build()
                     .verify(token)
                     .getSubject();
-        } catch (JWTVerificationException exception){
+        } catch (JWTVerificationException exception) {
             return null;
         }
     }

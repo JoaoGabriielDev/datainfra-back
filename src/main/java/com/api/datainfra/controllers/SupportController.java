@@ -1,4 +1,4 @@
-package com.api.datainfra.resources;
+package com.api.datainfra.controllers;
 
 import com.api.datainfra.entities.Support;
 import com.api.datainfra.services.SupportService;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/support")
-public class SupportResource {
+public class SupportController {
 
     @Autowired
     private SupportService service;

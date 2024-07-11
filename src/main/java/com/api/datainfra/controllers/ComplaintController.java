@@ -1,4 +1,4 @@
-package com.api.datainfra.resources;
+package com.api.datainfra.controllers;
 
 import com.api.datainfra.entities.Complaint;
 import com.api.datainfra.services.ComplaintService;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/complaint")
-public class ComplaintResource {
+public class ComplaintController {
 
     @Autowired
     private ComplaintService service;

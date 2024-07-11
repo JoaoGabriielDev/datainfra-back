@@ -1,4 +1,4 @@
-package com.api.datainfra.resources;
+package com.api.datainfra.controllers;
 
 import com.api.datainfra.entities.Neighborhood;
 import com.api.datainfra.services.NeighborhoodService;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/neigborhoods")
-public class NeighborhoodResource {
+public class NeighborhoodController {
 
     @Autowired
     private NeighborhoodService service;

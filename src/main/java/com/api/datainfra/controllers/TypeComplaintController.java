@@ -1,7 +1,6 @@
-package com.api.datainfra.resources;
+package com.api.datainfra.controllers;
 
 import com.api.datainfra.entities.TypeComplaint;
-import com.api.datainfra.entities.User;
 import com.api.datainfra.services.TypeComplaintService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/type-complaint")
-public class TypeComplaintResource {
+public class TypeComplaintController {
 
     @Autowired
     private TypeComplaintService service;

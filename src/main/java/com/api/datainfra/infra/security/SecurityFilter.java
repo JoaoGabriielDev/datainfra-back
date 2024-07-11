@@ -2,6 +2,7 @@ package com.api.datainfra.infra.security;
 
 import com.api.datainfra.entities.User;
 import com.api.datainfra.repositories.UserRepository;
+import com.api.datainfra.services.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ public class SecurityFilter extends OncePerRequestFilter {
     TokenService tokenService;
 
     @Autowired
-    UserRepository repository;
+    UserService service;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -31,7 +32,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         var login = tokenService.validateToken(token);
 
         if(login != null){
-            User user = repository.findByEmail(login).orElseThrow(() -> new RuntimeException("User Not Found"));
+            User user = service.findByEmail(login).orElseThrow(() -> new RuntimeException("User Not Found"));
             var authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
             var authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
             SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -39,9 +40,11 @@ public class SecurityFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private String recoverToken(HttpServletRequest request){
+    private String recoverToken(HttpServletRequest request) {
         var authHeader = request.getHeader("Authorization");
-        if(authHeader == null) return null;
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return null;
+        }
         return authHeader.replace("Bearer ", "");
     }
 }

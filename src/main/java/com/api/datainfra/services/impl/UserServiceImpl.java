@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -44,6 +45,11 @@ public class UserServiceImpl implements UserService {
         obj.setCep(user.getCep());
         obj.setPassword(user.getPassword());
         return repository.save(obj);
+    }
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+        return Optional.empty();
     }
 
 }
